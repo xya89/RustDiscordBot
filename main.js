@@ -59,13 +59,29 @@ client.on('message', message =>{
         client.commands.get('heli').execute(message, args);
     }
 
-    else if(command === 'welcome') {
-        client.commands.get('welcome').execute(message, args, Discord);
+    // else if(command === 'welcome') {
+    //     client.commands.get('welcome').execute(message, args, Discord);
+    // }
+
+    else if(command === 'reset') {
+        resetBot(message.channel);
+    }
+
+    else if(command === 'shutdown') {
+        disconnectBot(message.channel);
     }
 
 
+    // Create an event listener for new members
+    
 });
 
+// client.on('guildMemberAdd', member => {
+//         // Send the msg to a designated channel on a server:
+//         const targetChannel = member.guild.channels.find(ch => ch.name === 'general');
+
+//        // targetChannel.commands.get('welcome').execute(message, args, Discord);
+//     });
 
 
 
@@ -74,9 +90,19 @@ client.on('message', message =>{
 
 
 
+// shut down but
+function resetBot(channel) {
+    // send channel a message that you're resetting bot
+    channel.send('Resetting...')
+    .then(msg => client.destroy())
+    .then(() => client.login('Nzc4NzkxMDA1ODA0NTYwNDM0.X7XHpQ.06zojvunNSfsazucd3H9iTjRx9U'))
+};
 
-
-
+// disconnect bot
+function disconnectBot(channel) {
+    channel.send('Disconnecting...')
+    .then(client.destroy())
+};
 
 
 

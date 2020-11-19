@@ -1,5 +1,7 @@
 const { DiscordAPIError } = require("discord.js")
 
+
+// Embed for welcoming messages
 module.exports= {
     name: 'welcome',
     description: "Embeds!",
@@ -7,16 +9,17 @@ module.exports= {
 
         const newEmbed = new Discord.MessageEmbed()
         .setColor('#CE412B')
-        .setTitle('Welcome')
-        .setDescription('This is a embed for welcoming msgs')
+        .setTitle('Kill, Die, Sigh, Repeat')
+        .setDescription('Welcome to the Rust fields motherfuckers!')
         .addFields(
-            {name: 'Msg 1', value: 'Bruh'},
-            {name: 'Msg 2', value: 'Bruh1'}, 
+            {name: 'Rule 1', value: 'Have a good time rusting'},
+            {name: 'Rule 2', value: 'Drink water'}, 
+            {name: 'Rule 3', value: 'Repeat the previous two'}, 
 
         )
-        // .setImage(
-        //     'https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80'
-        // )
+        .setImage(
+            'https://files.facepunch.com/s/581f25039912.jpg'
+        )
         .setFooter('Make sure to check out the msgs');
 
         message.channel.send(newEmbed);
