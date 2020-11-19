@@ -55,6 +55,10 @@ client.on('message', message =>{
         client.commands.get('portal').execute(message, args);
     }
 
+    else if(command === 'mymini') {
+        client.commands.get('heli').execute(message, args);
+    }
+
 
 });
 
