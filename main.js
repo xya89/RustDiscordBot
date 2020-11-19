@@ -59,6 +59,10 @@ client.on('message', message =>{
         client.commands.get('heli').execute(message, args);
     }
 
+    else if(command === 'welcome') {
+        client.commands.get('welcome').execute(message, args, Discord);
+    }
+
 
 });
 
