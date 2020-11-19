@@ -1,0 +1,26 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "code package for rustDiscordBot",
+  "main": " main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xya89/RustDiscordBot.git"
+  },
+  "keywords": [
+    "Discord",
+    "Bot"
+  ],
+  "author": "Sean Yang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xya89/RustDiscordBot/issues"
+  },
+  "homepage": "https://github.com/xya89/RustDiscordBot#readme",
+  "dependencies": {
+    "discord.js": "^12.4.1"
+  }
+}
