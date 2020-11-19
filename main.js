@@ -5,15 +5,30 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
+// basic custome commands for bot
+const prefix = '-';
+
+const fs = require('fs');
+
+// stored commands collection
+client.commands = new Discord.Collection();
+
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+// loop throught the files
+for(const file of commandFiles) {
+    const command = require(`./commands/${file}`);
+
+    client.commands.set(command.name, command);
+}
+
+
+
 
 // log function
 client.once('ready', () => {
     console.log('RustBoi is online!');
-})
+});
 
-
-// basic custome commands for bot
-const prefix = '-';
 
 
 // Error checking for bot prefix
@@ -25,12 +40,19 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    // adding commands
+
+
+    // basic command handler
     if(command === 'ping') {
-        message.channel.send('pong!')
+        client.commands.get('ping').execute(message, args);
     }
     else if(command === 'wiki') {
         message.channel.send('https://rustlabs.com')
+    }
+    // adding more commands
+    // extract to command to functions
+    else if(command === 'portal') {
+        client.commands.get('portal').execute(message, args);
     }
 
 
